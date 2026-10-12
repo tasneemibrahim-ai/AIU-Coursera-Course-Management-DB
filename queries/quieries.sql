@@ -1,0 +1,189 @@
+-- User1 Table
+CREATE TABLE User1 (
+    CourseraUserID INT PRIMARY KEY,
+    Username VARCHAR(255),
+    Pass VARCHAR(255)
+);
+
+-- Organization Table
+CREATE TABLE Org (
+    OrgID INT PRIMARY KEY,
+    OrgName VARCHAR(255),
+    Specialization VARCHAR(255)
+);
+
+-- Coursera Table
+CREATE TABLE Coursera (
+    CourseraLink VARCHAR(255) PRIMARY KEY,
+    OrgID INT,
+    CourseraEmail VARCHAR(255),
+    FOREIGN KEY (OrgID) REFERENCES Org(OrgID)
+);
+
+-- AIU Table
+CREATE TABLE AIU (
+    AIUEmail VARCHAR(255) PRIMARY KEY,
+    OrgID INT,
+    CourseraLink VARCHAR(255),
+    Rankk INT,
+    FOREIGN KEY (OrgID) REFERENCES Org (OrgID),
+    FOREIGN KEY (CourseraLink) REFERENCES Coursera (CourseraLink)
+);
+
+-- AIU Address Table
+CREATE TABLE AIUAddress (
+    AIUEmail VARCHAR(255) PRIMARY KEY,
+    AIUAddress VARCHAR(255),
+    FOREIGN KEY (AIUEmail) REFERENCES AIU (AIUEmail)
+);
+
+-- AIU Courses Table
+CREATE TABLE AIUCourses (
+    AIUCourseCode VARCHAR(255) PRIMARY KEY,
+    AIUCourseName VARCHAR(255),
+    AIUEmail VARCHAR(255),
+    SemesterNo INT,
+    Field VARCHAR(255),
+    ExpectedStudentsNo INT,
+    FOREIGN KEY (AIUEmail) REFERENCES AIU (AIUEmail)
+);
+
+-- Coursera Courses Table
+CREATE TABLE CourseraCourses (
+    CourseraCourseSlug INT PRIMARY KEY,
+    CourseraLink VARCHAR(255),
+    CourseraCourseLink VARCHAR(255),
+    CourseraInstructorName VARCHAR(255),
+    CourseraInstructorId INT,
+    CourseraCourseName VARCHAR(255),
+    CourseraCourseCode VARCHAR(255),
+    Weeks VARCHAR(255),
+    Hours VARCHAR(255),
+    FOREIGN KEY (CourseraLink) REFERENCES Coursera(CourseraLink)
+);
+
+-- Use1 Table
+CREATE TABLE Use1 (
+    AIUCourseCode VARCHAR(255),
+    CourseraCourseSlug INT,
+    PRIMARY KEY (AIUCourseCode, CourseraCourseSlug),
+    FOREIGN KEY (AIUCourseCode) REFERENCES AIUCourses(AIUCourseCode),
+    FOREIGN KEY (CourseraCourseSlug) REFERENCES CourseraCourses(CourseraCourseSlug)
+);
+
+-- Instructor Table
+CREATE TABLE Instructor (
+    InstructorID INT PRIMARY KEY,
+    UserID INT,
+    InstructorEmail VARCHAR(255),
+    Field VARCHAR(255),
+    InstructorName VARCHAR(255),
+    FOREIGN KEY (UserID) REFERENCES User1(CourseraUserID)
+);
+
+-- Teaches Table
+CREATE TABLE Teaches (
+    InstructorID INT,
+    AIUCourseCode VARCHAR(255),
+    FOREIGN KEY (InstructorID) REFERENCES Instructor (InstructorID),
+    FOREIGN KEY (AIUCourseCode) REFERENCES AIUCourses(AIUCourseCode)
+);
+
+-- Coursera Program Table
+CREATE TABLE CourseraProgram (
+    CourseraProgramID INT PRIMARY KEY,
+    Field VARCHAR(255),
+    AdminLink VARCHAR(255),
+    LearnerLink VARCHAR(255)
+);
+
+-- Use2 Table
+CREATE TABLE Use2 (
+    InstructorID INT,
+    CourseraProgramID INT,
+    FOREIGN KEY (InstructorID) REFERENCES Instructor (InstructorID),
+    FOREIGN KEY (CourseraProgramID) REFERENCES CourseraProgram (CourseraProgramID)
+);
+
+-- Student Table
+CREATE TABLE Student (
+    StuID INT PRIMARY KEY,
+    CourseraUserID INT,
+    AIUEmail VARCHAR(255),
+    StuName VARCHAR(255),
+    StuEmail VARCHAR(255),
+    FOREIGN KEY (CourseraUserID) REFERENCES User1(CourseraUserID),
+    FOREIGN KEY (AIUEmail) REFERENCES AIU(AIUEmail)
+);
+
+-- Invite Table
+CREATE TABLE Invite (
+    StuID INT,
+    ProgramID INT,
+    FOREIGN KEY (StuID) REFERENCES Student(StuID),
+    FOREIGN KEY (ProgramID) REFERENCES CourseraProgram(ProgramID)
+);
+
+-- Enroll Table
+CREATE TABLE Enroll (
+    EnrollID INT PRIMARY KEY,
+    StuID INT,
+    AIUCourseCode VARCHAR(255),
+    CourseLabMark INT,
+    CourseExamMark INT,
+    AIUCourseGrade VARCHAR(255),
+    FOREIGN KEY (StuID) REFERENCES Student(StuID),
+    FOREIGN KEY (AIUCourseCode) REFERENCES AIUCourses(AIUCourseCode)
+);
+
+-- Coursera Coordinator Table
+CREATE TABLE CourseraCoordinator (
+    CoordinatorID INT PRIMARY KEY,
+    CoordinatorName VARCHAR(255),
+    UserID INT,
+    CourseraLink VARCHAR(255),
+    CoordinatorLink VARCHAR(255),
+    CoordinatorEmail VARCHAR(255),
+    FOREIGN KEY (UserID) REFERENCES User1(CourseraUserID),
+    FOREIGN KEY (CourseraLink) REFERENCES Coursera(CourseraLink)
+);
+
+-- Coursera Module Table
+CREATE TABLE CourseraModule (
+    ModuleID INT PRIMARY KEY,
+    CourseraCourseSlug INT,
+    Duration INT,
+    FOREIGN KEY (CourseraCourseSlug) REFERENCES CourseraCourses(CourseraCourseSlug)
+);
+
+-- Insertion
+
+-- User1 Table
+INSERT INTO User1 (CourseraUserID, Username, Pass) VALUES
+(1, 'StarryKnight', 'Ga2#Rav$5'),
+(2, 'QuantumJump', 'Pr0+Rin^7'),
+(3, 'PixelPioneer', 'By3%Fos2');
+
+-- Organization Table
+INSERT INTO Org (OrgID, OrgName, Specialization) VALUES
+(1, 'LearnQuest', NULL),
+(2, 'UC San Diego', 'https://www.coursera.org/specializations/data-structures-algorithms'),
+(3, 'University of Minnesota', 'https://www.coursera.org/specializations/software-development-lifecycle');
+
+-- Coursera Table
+INSERT INTO Coursera (CourseraLink, OrgID, CourseraEmail) VALUES
+('https://www.coursera.org/', Null, 'coursera@gmail.Org');
+
+-- AIU Table
+INSERT INTO AIU (AIUEmail, OrgID, CourseraLink, Rankk) VALUES
+('info@Aiu.edu.eg', Null, 'https://www.coursera.org/', 150);
+
+-- AIU Address Table
+INSERT INTO AIUAddress (AIUEmail, AIUAddress) VALUES
+('info@Aiu.edu.eg', 'Al Alameen City, El Alamein, Marsa Matrouh Governorate');
+
+-- AIU Courses Table
+INSERT INTO AIUCourses (AIUCourseCode, AIUCourseName, AIUEmail, SemesterNo, Field, ExpectedStudentsNo) VALUES
+('CSE015', 'Object oriented programming', 'info@Aiu.edu.eg', 2, 'CSE', 99),
+('CSE112', 'Design & Analysis of Algorithms', 'info@Aiu.edu.eg', 5, 'CSE', 25),
+('CSE251', 'Software Engineering', 'info@Aiu.edu.eg', 4, 'CSE')

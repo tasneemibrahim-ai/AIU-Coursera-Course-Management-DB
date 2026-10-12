@@ -1,0 +1,16 @@
+#@title OneHotEncoding Description
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+
+labelencoder = LabelEncoder()
+cleaned_Data['Description'] = labelencoder.fit_transform(cleaned_Data['Description'])
+
+ct = ColumnTransformer([("Description", OneHotEncoder(), [1])], remainder='drop')
+
+cleaned_Data_transformed = ct.fit_transform(cleaned_Data)
+
+cleaned_Data_transformed = pd.DataFrame(cleaned_Data_transformed)
+
+new_Description = np.array([cleaned_Data_transformed])
+
+cleaned_Data = cleaned_Data.drop(columns = ['Description'], axis = 'columns', inplace = True)

@@ -1,0 +1,202 @@
+AIU Course Code,AIU Course Name,Semester  (in Study Plan),Number of expected students in the course,AIU Email,Field
+CSE015,Object oriented programming,1,99,info@Aiu.edu.eg,CSE
+CSE112,Design & Analysis of Algorithms,3,25,,CSE
+CSE251,Software Engineering,3,30,,CSE
+CSE014,Structured Programming,,,,CSE
+CSE221,Database Systems,,45,,CSE
+PBC202,Biochemistry II,"3
+4",208,,Art and Design
+PMB202,Pharmaceutical Microbiology,,250-300,,Pharmacy
+CSE113,Electric & Electronic Circuits ,3,40,,CSE
+AIE111,Artificial Intelligence,1,25,,CSE
+BMS171,Foundations of infections and infestations ,1,20,,Public Health
+EVD217,Representation & Rendering Techniques II,"3
+4",14,,Art and Design
+EVD214,Engineering Drawing II : Introduction to CAD,4,14,,Art and Design
+ACC213,Intermediate Accounting 2,4,13,,Business
+ACC112,Principles of Managerial Accounting,,50,,Business
+EVD111,History of Design,3,50,,Art and Design
+EVD215,3D Design Visualization Studio,,13,,Art and Design
+AIE121,Machine Learning,,,,CSE
+PBC201,Biochemistry I,4,200,,Pharmacy
+AIE231,Neural Networks ,"4
+5",20,,CSE
+AIE323,https://www.coursera.org/specializations/data-mining-foundations-practice,"4
+5",20,,CSE
+CSE211,Web Programming,,60,,CSE
+CSE112,Design and Analysis of Algorithms,,30,,CSE
+CSE233,Operating Systems,2,40,,CSE
+EVD213,Representation and Rendering Techniques I,,30,,Art and Design
+VDD219,Graphic design 1,4,30,,Art and Design
+CSE281,Image Processing,2,90,,CSE
+AIE111,Artificial Intelligence,2,60,,CSE
+MAT212,Linear Algebra,3,60,,CSE
+CIV244,Transportation planning and traffic engineering,6,,,Engineering
+BIO131,Biology I,6,60,,Basic Sciences
+PMB201,General Microbiology and Immunology,6,188,,Pharmacy
+PHN 211,basics of Nutrition,6,19,,Public Health
+ACC211,Intermediate Accounting 1 ,6,59,,Business
+BIS351 ,Database Design and Management,6,10,,Business
+VDD212,Visual Communication,6,14,,Art and Design
+VDD214,Photography,6,13,,Art and Design
+MGT221,Human Resources Management ,6,10,,Business
+PMC306,Medicinal Chemistry I,6,279,,Pharmacy
+EVD211,Interior design studio 1,"4
+5",55,,Art and Design
+LAN111,English 2,"4
+5",315,,University Requirements
+BMS231,Physiology and pathophysiology I,5,201,,Pharmacy
+BMS271,General Microbiology for Dental Students,5,90,,Dentistry
+PPP304,Pharmacotherapy I,5,240,,Pharmacy
+PBC202,Biochemistry II,5,191,,Pharmacy
+PPP303,Pharmacy Skills and Patient Counselling ,5,290,,Pharmacy
+PMB202,Pharmaceutical Microbiology,7,160,,Pharmacy
+BIO132,Developmental Biology,6,62,,Basic Sciences
+CSE 251,Software Engineering,3,70,,CSE
+CSE352,Systems design and analysis,3,30,,CSE
+CSE112,Design and analysis of algorithms,4,70,,CSE
+BMS 23,Physiology and pathophysiology for pharmacy ,4,210,,Pharmacy
+PMC102,Pharmaceutical Organic Chemistry 1,4,400,,Pharmacy
+BDS261,Genetics ,5,320,,Dentistry
+BMS351,Pathology (For Pharmacy),6,270,,Pharmacy
+AIE212,Knowledge-based Systems,6,30,,CSE
+AIE111,Artificial Intelligence,7,60,,CSE
+CSE221,Database Systems,6,70,,CSE
+EVD217,Representation & Rendering Techniques II,7,,,Art and Design
+EVD217,Representation & Rendering Techniques I,7,55,,Art and Design
+EVD214,Engineering Drawing II : Introduction to CAD,2,55,,Art and Design
+EVD215,3D Visualisation Studio,2,55,,Art and Design
+EVD111,History of Design,2,103,,Art and Design
+VDD211,Typography,4,13,,Art and Design
+VDD227,perspective,4,13,,Art and Design
+VDD226,Graphic Design II,4,13,,Art and Design
+CSE015,Object Oriented Programming,4,180,,CSE
+AIE121,Machine Learning,4,60,,CSE
+CIV222,Fluid Mechanics and Water Resources,4,15,,Engineering
+MEC012, Engineering Drawing 2,4,80,,Engineering
+MEC041 , Production Engineering,4,90,,Engineering
+CIV232 ,Foundation Design,4,15,,Engineering
+PHS235,Health Promotion and educatio,3,21 students,,Public Health
+CIV113 ,Structural Analysis (2),3,10,,Engineering
+MEC112 ,Strength of Material  ,5,35,,Engineering
+CIV214,Concrete Technology (2),3,10,,Engineering
+CIV233  ,"Properties of materials, Soil mechanics and foundations ",5,12,,Engineering
+CIV231 ,Surveying (2),5,25,,Engineering
+ELE234 ,Logic Design,5,55,,Engineering
+CIV312 ,Concrete Structures Design (2),1,15,,Engineering
+ARC111 ,"Visual Perception, Art and Design",3,12,,Engineering
+ARC242 ,Sanitary Installations & Architectural Acoustics Cancelling ,3,15,,Engineering
+MEC121 ,Manufacturing Technology,7,35,,Engineering
+BME213 ,Biochemistry,3,7,,Engineering
+PGE113 ,Oil & Gas Industry Operations and Markets,5,26,,Engineering
+MEC255,Energy resources,3,35,,Engineering
+MEC256 ,Engineering Thermodynamics,5,26,,Engineering
+MAT122,Statics,3,50,,Engineering
+ARC132 , History and Theory of Medieval Architecture,5,12,,Engineering
+MAT121,Dynamics,3,80,,Engineering
+ARC234 ,Theory and Criticism of Modern and Contemporary Architecture,6,10,,Engineering
+ARC272 ,Landscape Architecture,2,10,,Engineering
+ARC233 ,History of Islamic Architecture,2,15,,Engineering
+CHE142,Engineering Chemistry,6,30,,Engineering
+ARC222 ,Architectural Studio 2,4,15,,Engineering
+BME215 ,Biology,6,7,,Engineering
+PHY211,Physics 2,6,80,,Engineering
+BME212 ,Introduction to Bio Engineering,4,7,,Engineering
+ELE212 ,Electrical Measurements and Measuring Instruments,4,20,,Engineering
+CIV215,Geology,6,15,,Engineering
+ELE112 ,Electronic Circuits,2,20,,Engineering
+PGE122,Mechanics of materials,4,20,,Engineering
+ARC223,Architectural Studio 3,4,15,,Engineering
+ARC335,20th Century Egyptian Architecture &Arts,6,15,,Engineering
+PHY467, Energy Effeciency in Buildings and ECBC,6,15,,Engineering
+MEC253,Thermodynamics,6,35,,Engineering
+MEC211,Mechanics of Machinery ,6,35,,Engineering
+BME252,Biotransport Phenomena,4,7,,Engineering
+CHE152,Chemistry,4,7,,Engineering
+PGE121,Fundamentals of Materials Science,4,26,,Engineering
+PHY111,Physics 1,4,40,,Engineering
+MAT111,Mathematics 1,4,50,,Engineering
+MAT112,Mathematics 2,4,80,,Engineering
+AIE241,Natural Language Processing,4,20,,CSE
+ACC213,Intermediate Accounting 2,4,50,,Business
+ACC112,Principles of Managerial Accounting,4,80,,Business
+BIS352,E-Commerce and E-Business,4,25,,Business
+PHS236,Biostatistics ,4,21,,Public Health
+CSE111,Dara Structures,2,,,CSE
+BIS355,Programming 2,2,10+,,Business
+PHY 111,Physics 1,2,60,,Engineering
+PHY111 ,Physics 1,2,200,,Engineering
+BME215,Biology,4,5,,Engineering
+ARC132,History & Theory of Medieval Architecture,4,14,,Engineering
+ARC111,"Visual Perception, Art & Design",6,7,,Engineering
+CIV113,Structural Analysis 2,6,20,,Engineering
+CSE015,Object Oriented Programming,4,100,,CSE
+PBC201,Biochemistry I,4,400,,Pharmacy
+PPP407,Pharmacotherapy II,4,230,,Pharmacy
+BIO131,Biology1,4,210,,Basic Sciences
+BIO241,Biology2,2,62,,Basic Sciences
+CSE454,Advanced Software Engineering,2,25,,CSE
+CSE363,Cloud Computing,4,25,,CSE
+CIV 114,Civil Engineering Drawing,2,4,,Engineering
+CSE113,Electric & Electronic Circuits,"4
+6",,,CSE
+AIE111,Artificial Intelligence,"
+7",200,,CSE
+CSE221,Database Systems,"
+5",24,,CSE
+AIE231,Neural Networks,"
+5",60,,CSE
+"PPT403	",Pharmacology III & Biostatistics,"
+5",240,,Pharmacy
+CSE261,Computer Networks,"
+5",,,CSE
+AIE322,Advanced Machine Learning,"
+5",8,,CSE
+BMS271,General Microbiology for dental Students,3,400,,Dentistry
+PMB201,General Microbiology and Immunology,1,400,,Pharmacy
+VDD332,Specific Graphic Design I,4,15,,Art and Design
+VDD331,Computer design application I,3,15,,Art and Design
+VDD332,Specific Graphic Design I,1,15,,Art and Design
+CSE014,Structured Programming,3,300,,CSE
+CSE111,Data Structures ,3,170,,CSE
+MAT231,Probability and Statistics II,1,170,,CSE
+EVD213,Representation&Rendering Techinques I,1,75,,Art and Design
+EVD211,Interior design Studio I,3,75,,Art and Design
+VDD214,Photography,1,25,,Art and Design
+ACC411,Advanced Financial Accounting,3,10,,Business
+CSE261,Computer Networks,3,100,,CSE
+BIS251,Business Information Systems,5,96,,Business
+BIS351 ,"Database Design and Management		",5,33,,Business
+" 	MGT221	","Human Resources Management 	",5,39,,Business
+BIS345,BIS354 Introduction to Computer Programming,,31,,Business
+trial,trial,,0,,CSE
+trial,trial,,0,,Engineering
+PGE111,Organic chemistry of petroleum,,7,,Engineering
+CIV 114,Civil Engineering Drawing,,4,,Engineering
+MEC151,Thermal Energy,,50,,Engineering
+CIV232,Foundation Design (1),,6,,Engineering
+ARC272,Landscape Architecture,,8,,Engineering
+ELE 111,Electrical Circuits,,30,,Engineering
+PHS133,Professionalism in ever changing world,,37,,Public Health
+ELE271,Electrical Machines ,,51,,Engineering
+PGE231,Natural Gas Engineering I,,15,,Engineering
+PHY467,Energy Effeciency in Buildings and ECBC,,19,,Engineering
+CIV 344,Design of Transportation Structures,,7,,Engineering
+CIV 344,Design of Transportation Structures,,7,,Engineering
+MEC253,Thermodynamics,,2,,Engineering
+PHS331,Advanced Epidemiologic Methods,,19,,Public Health
+PHS241,Healthcare Systems and Primary Healthcare,,26,,Public Health
+PHS132,Medical Terminology and Professional Writing,,37,,Public Health
+PHS251,Introduction to Healthcare Management,,26,,Public Health
+BMS144,Biochemistry for Health Sciences,,37,,Public Health
+PHS261,Principles of Genomics,,26,,Public Health
+PHS211,Basics of Nutrition,,26,,Public Health
+PHS131,Basic Epidemiology,,37,,Public Health
+PHS231,Research Methods in Public Health,,26,,Public Health
+PHS232,Health Informatics,,26,,Public Health
+CSE344,Introduction to Cyber Security,,3,,CSE
+CSE241,Security of Information Systems,,5,,CSE
+BMD310,Introduction to Programming for Biostatisticians,,19,,Public Health
+MAT316,Statistical Modeling,,19,,Public Health
+EVD215,3D Design Visualization Studio,,47,,Art and Design
+CSE251,Software Engineering,,14,,CSE

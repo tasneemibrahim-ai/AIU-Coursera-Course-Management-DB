@@ -1,0 +1,16 @@
+#@title OneHotEncoding Actors
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+
+labelencoder = LabelEncoder()
+cleaned_Data['Actors'] = labelencoder.fit_transform(cleaned_Data['Actors'])
+
+ct = ColumnTransformer([("Actors", OneHotEncoder(), [2])], remainder='drop')
+
+cleaned_Data_transformed = ct.fit_transform(cleaned_Data)
+
+cleaned_Data_transformed = pd.DataFrame(cleaned_Data_transformed)
+
+Actors = np.array([cleaned_Data_transformed])
+
+cleaned_Data = cleaned_Data.drop(columns = ['Actors'], axis = 'columns', inplace = True)

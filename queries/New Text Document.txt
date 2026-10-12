@@ -1,0 +1,270 @@
+-- Retrieve all courses taught by a specific instructor
+SELECT AIUCourses.AIUCourseName
+FROM AIUCourses
+JOIN Teaches ON AIUCourses.AIUCourseCode = Teaches.AIUCourseCode
+JOIN Instructor ON Teaches.InstructorID = Instructor.InstructorID
+WHERE Instructor.InstructorName = 'Islam Elkabani';
+
+-- Find the number of students enrolled in each AIU course
+SELECT AIUCourses.AIUCourseName, COUNT(Enroll.StuID) AS NumOfStudents
+FROM AIUCourses
+LEFT JOIN Enroll ON AIUCourses.AIUCourseCode = Enroll.AIUCourseCode
+GROUP BY AIUCourses.AIUCourseName;
+
+-- List all Coursera courses with their respective instructors
+SELECT CourseraCourses.CourseraCourseName, Instructor.InstructorName
+FROM CourseraCourses
+JOIN Instructor ON CourseraCourses.CourseraInstructorId = Instructor.InstructorID;
+
+-- Retrieve the total number of enrolled students in each Coursera program
+SELECT CourseraProgram.AdminLink, COUNT(Enroll.StuID) AS NumOfStudents
+FROM CourseraProgram
+JOIN Use2 ON CourseraProgram.CourseraProgramID = Use2.CourseraProgramID
+JOIN Teaches ON Use2.InstructorID = Teaches.InstructorID
+JOIN AIUCourses ON Teaches.AIUCourseCode = AIUCourses.AIUCourseCode
+JOIN Enroll ON AIUCourses.AIUCourseCode = Enroll.AIUCourseCode
+GROUP BY CourseraProgram.AdminLink;
+
+-- Retrieve all students enrolled in a particular Coursera program
+SELECT Student.StuName, Student.StuEmail
+FROM Student
+JOIN Invite ON Student.StuID = Invite.StuID
+WHERE Invite.ProgramID = 1; -- Assuming program ID 1 is the desired program
+
+-- Find the average exam marks for each enrolled student
+SELECT Student.StuName, AVG(Enroll.CourseExamMark) AS AvgExamMark
+FROM Student
+JOIN Enroll ON Student.StuID = Enroll.StuID
+GROUP BY Student.StuName;
+
+-- Retrieve all AIU courses offered in a specific field
+SELECT AIUCourses.AIUCourseName
+FROM AIUCourses
+WHERE AIUCourses.Field = 'CSE';
+
+-- List all instructors who teach AIU courses in a certain field
+SELECT DISTINCT Instructor.InstructorName
+FROM Instructor
+JOIN Teaches ON Instructor.InstructorID = Teaches.InstructorID
+JOIN AIUCourses ON Teaches.AIUCourseCode = AIUCourses.AIUCourseCode
+WHERE AIUCourses.Field = 'CSE';
+
+-- Find all Coursera courses with a duration greater than a specified value
+SELECT CourseraCourses.CourseraCourseName
+FROM CourseraCourses
+JOIN CourseraModule ON CourseraCourses.CourseraCourseSlug = CourseraModule.CourseraCourseSlug
+WHERE CourseraModule.Duration > 5; -- Assuming duration greater than 5 is the criteria
+
+-- Retrieve the name and specialization of organizations offering AIU courses
+SELECT Org.OrgName, Org.Specialization
+FROM Org
+JOIN AIUCourses ON Org.OrgID = AIUCourses.OrgID;
+       #######################################VIEW############################################
+#1
+#CREATE VIEW CoursesTaughtByInstructor AS
+SELECT AIUCourses.AIUCourseName
+FROM AIUCourses
+JOIN Teaches ON AIUCourses.AIUCourseCode = Teaches.AIUCourseCode
+JOIN Instructor ON Teaches.InstructorID = Instructor.InstructorID
+WHERE Instructor.InstructorName = 'Islam Elkabani';
+#*********************************************************************************************
+#2
+CREATE VIEW CourseEnrollmentCount AS
+SELECT AIUCourses.AIUCourseName, COUNT(Enroll.StuID) AS NumOfStudents
+FROM AIUCourses
+LEFT JOIN Enroll ON AIUCourses.AIUCourseCode = Enroll.AIUCourseCode
+GROUP BY AIUCourses.AIUCourseName;
+#***********************************************************
+#3
+CREATE VIEW CourseraCourseInstructors AS
+SELECT CourseraCourses.CourseraCourseName, Instructor.InstructorName
+FROM CourseraCourses
+JOIN Instructor ON CourseraCourses.CourseraInstructorId = Instructor.InstructorID;
+
+#***********************************************************
+#4
+CREATE VIEW CourseraProgramEnrollmentCount AS
+SELECT CourseraProgram.AdminLink, COUNT(Enroll.StuID) AS NumOfStudents
+FROM CourseraProgram
+JOIN Use2 ON CourseraProgram.CourseraProgramID = Use2.CourseraProgramID
+JOIN Teaches ON Use2.InstructorID = Teaches.InstructorID
+JOIN AIUCourses ON Teaches.AIUCourseCode = AIUCourses.AIUCourseCode
+JOIN Enroll ON AIUCourses.AIUCourseCode = Enroll.AIUCourseCode
+GROUP BY CourseraProgram.AdminLink;
+
+#***********************************************************
+#5
+CREATE VIEW StudentsEnrolledInProgram AS
+SELECT Student.StuName, Student.StuEmail
+FROM Student
+JOIN Invite ON Student.StuID = Invite.StuID
+WHERE Invite.ProgramID = 1;
+
+#***********************************************************
+#6
+CREATE VIEW StudentAverageExamMarks AS
+SELECT Student.StuName, AVG(Enroll.CourseExamMark) AS AvgExamMark
+FROM Student
+JOIN Enroll ON Student.StuID = Enroll.StuID
+GROUP BY Student.StuName;
+
+#***********************************************************
+#7
+CREATE VIEW AiuCoursesInField AS
+SELECT AIUCourses.AIUCourseName
+FROM AIUCourses
+WHERE AIUCourses.Field = 'CSE';
+
+#***********************************************************
+#8
+CREATE VIEW AiuInstructorsInField AS
+SELECT DISTINCT Instructor.InstructorName
+FROM Instructor
+JOIN Teaches ON Instructor.InstructorID = Teaches.InstructorID
+JOIN AIUCourses ON Teaches.AIUCourseCode = AIUCourses.AIUCourseCode
+WHERE AIUCourses.Field = 'CSE';
+
+#***********************************************************
+#9
+CREATE VIEW CourseraCoursesWithDurationGreaterThan5 AS
+SELECT CourseraCourses.CourseraCourseName
+FROM CourseraCourses
+JOIN CourseraModule ON CourseraCourses.CourseraCourseSlug = CourseraModule.CourseraCourseSlug
+WHERE CourseraModule.Duration > 5;
+
+#***********************************************************
+#10
+CREATE VIEW OrgOfferingAiuCourses AS
+SELECT Org.OrgName, Org.Specialization
+FROM Org
+JOIN AIUCourses ON Org.OrgID = AIUCourses.OrgID;
+
+#***********************************************************
+############################################ PROCEDURE########################################
+#1
+DELIMITER //
+CREATE PROCEDURE GetCoursesTaughtByInstructor()
+BEGIN
+    SELECT AIUCourses.AIUCourseName
+    FROM AIUCourses
+    JOIN Teaches ON AIUCourses.AIUCourseCode = Teaches.AIUCourseCode
+    JOIN Instructor ON Teaches.InstructorID = Instructor.InstructorID
+    WHERE Instructor.InstructorName = 'Islam Elkabani';
+END//
+DELIMITER ;
+
+#*******************************************************************
+#2
+DELIMITER //
+CREATE PROCEDURE GetCourseEnrollmentCount()
+BEGIN
+    SELECT AIUCourses.AIUCourseName, COUNT(Enroll.StuID) AS NumOfStudents
+    FROM AIUCourses
+    LEFT JOIN Enroll ON AIUCourses.AIUCourseCode = Enroll.AIUCourseCode
+    GROUP BY AIUCourses.AIUCourseName;
+END//
+DELIMITER ;
+
+
+#************************************************************
+#3
+DELIMITER //
+CREATE PROCEDURE GetCourseraCourseInstructors()
+BEGIN
+    SELECT CourseraCourses.CourseraCourseName, Instructor.InstructorName
+    FROM CourseraCourses
+    JOIN Instructor ON CourseraCourses.CourseraInstructorId = Instructor.InstructorID;
+END//
+DELIMITER ;
+
+#***********************************************************
+#4
+DELIMITER //
+CREATE PROCEDURE GetCourseraProgramEnrollmentCount()
+BEGIN
+    SELECT CourseraProgram.AdminLink, COUNT(Enroll.StuID) AS NumOfStudents
+    FROM CourseraProgram
+    JOIN Use2 ON CourseraProgram.CourseraProgramID = Use2.CourseraProgramID
+    JOIN Teaches ON Use2.InstructorID = Teaches.InstructorID
+    JOIN AIUCourses ON Teaches.AIUCourseCode = AIUCourses.AIUCourseCode
+    JOIN Enroll ON AIUCourses.AIUCourseCode = Enroll.AIUCourseCode
+    GROUP BY CourseraProgram.AdminLink;
+END//
+DELIMITER ;
+
+#***********************************************************
+#5
+DELIMITER //
+CREATE PROCEDURE GetStudentsEnrolledInProgram()
+BEGIN
+    SELECT Student.StuName, Student.StuEmail
+    FROM Student
+    JOIN Invite ON Student.StuID = Invite.StuID
+    WHERE Invite.ProgramID = 1;
+END//
+DELIMITER ;
+
+#***********************************************************
+#6
+DELIMITER //
+CREATE PROCEDURE GetStudentAverageExamMarks()
+BEGIN
+    SELECT Student.StuName, AVG(Enroll.CourseExamMark) AS AvgExamMark
+    FROM Student
+    JOIN Enroll ON Student.StuID = Enroll.StuID
+    GROUP BY Student.StuName;
+END//
+DELIMITER ;
+
+#***********************************************************
+#7
+DELIMITER //
+CREATE PROCEDURE GetAiuCoursesInField()
+BEGIN
+    SELECT AIUCourses.AIUCourseName
+    FROM AIUCourses
+    WHERE AIUCourses.Field = 'CSE';
+END//
+DELIMITER ;
+
+#***********************************************************
+#8
+DELIMITER //
+CREATE PROCEDURE GetAiuInstructorsInField()
+BEGIN
+    SELECT DISTINCT Instructor.InstructorName
+    FROM Instructor
+    JOIN Teaches ON Instructor.InstructorID = Teaches.InstructorID
+    JOIN AIUCourses ON Teaches.AIUCourseCode = AIUCourses.AIUCourseCode
+    WHERE AIUCourses.Field = 'CSE';
+END//
+DELIMITER ;
+
+#***********************************************************
+#9
+DELIMITER //
+CREATE PROCEDURE GetCourseraCoursesWithDurationGreaterThan5()
+BEGIN
+    SELECT CourseraCourses.CourseraCourseName
+    FROM CourseraCourses
+    JOIN CourseraModule ON CourseraCourses.CourseraCourseSlug = CourseraModule.CourseraCourseSlug
+    WHERE CourseraModule.Duration > 5;
+END//
+DELIMITER ;
+#***********************************************************
+#10
+DELIMITER //
+CREATE PROCEDURE GetOrgOfferingAiuCourses()
+BEGIN
+    SELECT Org.OrgName, Org.Specialization
+    FROM Org
+    JOIN AIUCourses ON Org.OrgID = AIUCourses.OrgID;
+END//
+DELIMITER ;
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+Retrieve all courses taught by a specific instructor:
+Get the names of courses taught by a particular instructor.
+Find the number of students enrolled in each AIU course:
+Count the number of students enrolled in each course offered by an Academic Institution Unit (AIU).
+List all Coursera courses with their respective instructors:
+Show the names of Coursera courses along with the names of their instructors.
+Retrieve the total number of enrolled students in each Coursera program:
+Calculate the total number of students enrolled in each program offered by Coursera.
+Retrieve all students enrolled in a particular Coursera program:
+Get the names and emails of all students enrolled in a specific program offered by Coursera.
+Find the average exam marks for each enrolled student:
+Calculate the average exam marks for each student who is enrolled in any course.
+Retrieve all AIU courses offered in a specific field:
+Show the names of all courses offered by an Academic Institution Unit (AIU) in a particular field.
+List all instructors who teach AIU courses in a certain field:
+Display the names of all instructors who teach courses in a specific field offered by an Academic Institution Unit (AIU).
+Find all Coursera courses with a duration greater than a specified value:
+Get the names of all Coursera courses that have a duration greater than a specified value.
+Retrieve the name and specialization of organizations offering AIU courses:
+Show the names and specializations of organizations offering courses through an Academic Institution Unit (AIU).

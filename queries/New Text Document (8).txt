@@ -1,0 +1,34 @@
+'''import pandas as pd
+from sklearn.preprocessing import OneHotEncoder
+
+# Function to get the first two actors from the list
+def get_first_two_actors(actors_list):
+    actors = actors_list.split(',')
+    return ','.join(actors[:2])
+
+# Apply the function to the Actors column and split by commas
+df['first_two_actors'] = df['Actors'].apply(get_first_two_actors)
+df_exploded = df['first_two_actors'].str.get_dummies(sep=',')
+
+# Create an OneHotEncoder object
+ohe = OneHotEncoder(sparse=False)  # Use sparse=False to get a dense array
+
+# Since sklearn's OneHotEncoder expects a 2D array and works with unique labels per feature, 
+# We need to manipulate the data to fit into this format:
+# Transform 'first_two_actors' into a series of lists of actors
+actor_lists = df['first_two_actors'].str.split(',')
+actor_lists_exploded = actor_lists.explode()
+
+# Fit and transform the one-hot encoding
+ohe.fit(actor_lists_exploded.to_frame())  # Convert to DataFrame as required by sklearn
+col1_encoded = ohe.transform(actor_lists_exploded.to_frame())
+
+# Create new DataFrame for the encoded actors
+columns = ['Actor_' + feature for feature in ohe.get_feature_names_out()]
+new_actors = pd.DataFrame(col1_encoded, columns=columns, index=actor_lists_exploded.index)
+
+# Re-aggregate the one-hot encoded rows back to the original DataFrame indexing
+new_actors = new_actors.groupby(new_actors.index).max()
+
+# Concatenate the new actors dataframe with the original dataframe
+df_final = pd.concat([df, new_actors], axis=1)'''

@@ -1,0 +1,26 @@
+'''#@title OneHotEncoding
+import pandas as pd
+from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
+
+# Apply the function to the Actors column and split by commas
+df['first_two_actors'] = df['Actors'].apply(get_first_two_actors)
+df_exploded = df['first_two_actors'].str.get_dummies(sep=',')
+
+# Create an OneHotEncoder for categorical variables
+ohe = OneHotEncoder()
+
+# Create an OrdinalEncoder for ordinal variables
+oe = OrdinalEncoder()
+
+# Fit and transform the categorical variables
+ohe.fit(df[['first_two_actors']])
+col1_encoded = ohe.transform(df[['first_two_actors']]).toarray()
+
+# Fit and transform the ordinal variables
+ohe.fit(df[['Description']])
+col2_encoded = ohe.transform(df[['Description']]).toarray()
+
+# Create a new dataframe with the encoded columns
+newActors= pd.DataFrame(col1_encoded, columns=['Actors' + str(i) for i in range(col1_encoded.shape[1])])
+newDescription= pd.DataFrame(col2_encoded, columns=['Description' + str(i) for i in range(col2_encoded.shape[1])])
+Actors = newActors.apply(get_first_two_actors)'''
